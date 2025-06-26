@@ -1,0 +1,10 @@
+[project]
+name = "blog-py"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "quarto>=0.1.0",
+    "marimo<=0.14.0",
+]
