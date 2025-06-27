@@ -1,9 +1,8 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/blog.html",
     "items": [
-      "/posts/index.html",
-      "/posts/welcome/index.html"
+      "/posts/quarto-marimo.html"
     ]
   }
 ]

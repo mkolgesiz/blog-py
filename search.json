@@ -2,36 +2,57 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Me",
     "section": "",
-    "text": "About this blog"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
-    "objectID": "posts/index.html#more-things",
-    "href": "posts/index.html#more-things",
-    "title": "Post With Code",
-    "section": "More things",
-    "text": "More things\nAnd we can respond!\n\n    \n    NaN Batman!\n    \n    %23%20No%20echo%20here%20means%20we%20do%20not%20show%20the%20code%0Amo.md(%22NaN%22%20*%20slider.value%20%2B%20%22%20Batman!%22)"
+    "text": "Work in progress"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "blog",
+    "title": "M. Melik Kolgesiz",
     "section": "",
-    "text": "Post With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJun 26, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJun 23, 2025\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+    "text": "I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist in Turkey and a regional accounting manager in several different countries in West Africa.\nOn this site, I present my projects, CV, blog and recipe collection."
+  },
+  {
+    "objectID": "index.html#bio",
+    "href": "index.html#bio",
+    "title": "M. Melik Kolgesiz",
+    "section": "",
+    "text": "I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist in Turkey and a regional accounting manager in several different countries in West Africa.\nOn this site, I present my projects, CV, blog and recipe collection."
+  },
+  {
+    "objectID": "index.html#interests",
+    "href": "index.html#interests",
+    "title": "M. Melik Kolgesiz",
+    "section": "Interests",
+    "text": "Interests\nI’m interested in automation, data science and data engineering."
+  },
+  {
+    "objectID": "posts/quarto-marimo.html",
+    "href": "posts/quarto-marimo.html",
+    "title": "Quarto’s Marimo Plugin",
+    "section": "",
+    "text": "Couple days ago folks from Marimo published a YouTube video about marimo-quarto plugin. I had prior experience writing blogs with R Quarto, but I didn’t have any experience on Python. I just decided to give it go.\nI first tried the replicate the steps in R Studio IDE and I hilariously failed! After my first fail, I follow the steps on the video with VS Code and I failed again. Blog was loading but those beautiful reactive elements from Marimo were not working. Later, I found the solution in marimo-quarto GitHub issues page.\nIt was an enjoyable learning experience overall. I’m planning to publish my marimo notebook projects in foreseeable future.\nI copied the code chunk below directly from marimo-quarto Github repository."
+  },
+  {
+    "objectID": "posts/quarto-marimo.html#just-another-quarto-project",
+    "href": "posts/quarto-marimo.html#just-another-quarto-project",
+    "title": "Quarto’s Marimo Plugin",
+    "section": "Just another Quarto project",
+    "text": "Just another Quarto project"
+  },
+  {
+    "objectID": "posts/quarto-marimo.html#more-things",
+    "href": "posts/quarto-marimo.html#more-things",
+    "title": "Quarto’s Marimo Plugin",
+    "section": "More things",
+    "text": "More things\nAnd we can respond!\n\n    \n    NaN😄 Batman!\n    \n    %23%20No%20echo%20here%20means%20we%20do%20not%20show%20the%20code%0Amo.md(%22NaN%F0%9F%98%84%22%20*%20slider.value%20%2B%20%22%20Batman!%22)"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "",
+    "section": "",
+    "text": "Quarto’s Marimo Plugin\n\n\n\nmarimo\n\nquarto\n\n\n\n\n\n\n\n\n\nJun 27, 2025\n\n\nM. Melik Kolgesiz\n\n\n\n\n\nNo matching items"
   }
 ]
