@@ -1,12 +1,5 @@
 [
   {
-    "listing": "/index.html",
-    "items": [
-      "/posts/index.html",
-      "/posts/welcome/index.html"
-    ]
-  },
-  {
     "listing": "/blog.html",
     "items": [
       "/posts/quarto-marimo.html"
