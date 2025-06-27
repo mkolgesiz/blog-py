@@ -1,14 +1,13 @@
 ---
-title: "blog"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
-title-block-banner: true
+title: "M. Melik Kolgesiz"
 ---
 
+## Bio
 
+I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist in Turkey and a regional accounting manager in several different countries in West Africa.
+
+On this site, I present my projects, CV, blog and recipe collection.
+
+## Interests
+
+I'm interested in automation, data science and data engineering.
