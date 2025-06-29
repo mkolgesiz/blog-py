@@ -1,0 +1,259 @@
+---
+title: "Interactive Tax Calculator"
+author: "M. Melik Kolgesiz"
+date: "2024-12-29"
+categories: [marimo, finance]
+filters:
+    - marimo-team/marimo
+format:
+  html:
+    lang: en
+    encoding: UTF-8
+---
+
+The **Impot sur Traitements et Salaires (ITS)** is the salary tax system in Ivory Coast that underwent significant reform in January 2024. This interactive calculator computes monthly ITS tax based on the new progressive tax brackets. Interactive elements were prepared with [marimo plugin](https://github.com/marimo-team/quarto-marimo).
+
+## Calculator
+
+```python {.marimo}
+#| echo: false
+import marimo as mo
+import altair as alt
+import pandas as pd
+```
+
+```python {.marimo}
+#| echo: false
+
+# Create interactive elements
+salary_input = mo.ui.number(
+    start=0,
+    stop=100000000,
+    step=1000,
+    value=1000000,
+    label="Gross Monthly Salary (FCFA)"
+)
+
+# Create dropdown for marital status
+marital_status = mo.ui.dropdown(
+    options=["Single", "Married", "Divorced", "Widowed"],
+    value="Single",
+    label="Marital Status"
+)
+
+# Create dropdown for number of dependent children
+dependent_children = mo.ui.dropdown(
+    options=[str(i) for i in range(0, 11)],
+    value="0",
+    label="Number of Dependent Children"
+)
+
+# Create dropdown for disabled dependants
+disabled_dependants = mo.ui.dropdown(
+    options=[str(i) for i in range(0, 6)],
+    value="0",
+    label="Number of Disabled Dependants"
+)
+
+mo.md(f"""
+
+{salary_input}
+
+{marital_status}
+
+{dependent_children}
+
+{disabled_dependants}
+""")
+```
+
+```python {.marimo}
+#| echo: false
+
+def calculate_tax_parts(marital_status, dependent_children, disabled_dependents):
+    """
+    Calculate number of tax parts based on marital status and dependents
+    """
+    # Base parts
+    if marital_status in ["Single", "Divorced", "Widowed"]:
+        base_parts = 1.0
+    elif marital_status == "Married":
+        base_parts = 2.0
+    else:
+        base_parts = 1.0
+
+    # Add parts for children
+    if dependent_children > 0:
+        if marital_status in ["Single", "Divorced", "Widowed"]:
+            # Single parent: first child adds 1 part, others add 0.5 each
+            child_parts = 1.0 + (dependent_children - 1) * 0.5
+        else:
+            # Married: first child adds 0.5, others add 0.5 each
+            child_parts = dependent_children * 0.5
+    else:
+        child_parts = 0.0
+
+    # Add parts for disabled dependents (0.5 part each)
+    disabled_parts = disabled_dependents * 0.5
+
+    # Total parts (max 5.0)
+    total_parts = min(base_parts + child_parts + disabled_parts, 5.0)
+
+    return total_parts
+
+def calculate_its_tax(monthly_salary, dependents=0, tax_parts=1.0):
+    """
+    Calculate ITS tax based on 2024 Ivory Coast tax brackets
+    """
+    # Updated tax brackets based on new data
+    brackets = [
+        (75000, 0.0),     # Zero-rate bracket
+        (240000, 0.16),   # 16% bracket
+        (800000, 0.21),   # 21% bracket
+        (2400000, 0.24),  # 24% bracket
+        (8000000, 0.28),  # 28% bracket
+        (float('inf'), 0.32)  # 32% bracket
+    ]
+
+    tax = 0
+    remaining_income = monthly_salary
+    previous_bracket = 0
+
+    for bracket_limit, rate in brackets:
+        if remaining_income <= 0:
+            break
+
+        taxable_in_bracket = min(remaining_income, bracket_limit - previous_bracket)
+        tax += taxable_in_bracket * rate
+        remaining_income -= taxable_in_bracket
+        previous_bracket = bracket_limit
+
+        if bracket_limit == float('inf'):
+            break
+
+    # Apply tax parts deduction based on the table
+    tax_parts_deductions = {
+        1.0: 0, 1.5: 5500, 2.0: 11000, 2.5: 16500, 3.0: 22000,
+        3.5: 27500, 4.0: 33000, 4.5: 38500, 5.0: 44000
+    }
+
+    deduction = tax_parts_deductions.get(tax_parts, 0)
+    tax = max(0, tax - deduction)
+
+    return tax
+
+# Calculate and display results
+salary = salary_input.value
+marital_status_val = marital_status.value
+dependent_children_val = int(dependent_children.value)
+disabled_dependants_val = int(disabled_dependants.value)
+
+# Calculate tax parts automatically
+tax_parts_val = calculate_tax_parts(marital_status_val, dependent_children_val, disabled_dependants_val)
+
+# Calculate tax using the calculated inputs
+tax = calculate_its_tax(salary, dependent_children_val, tax_parts_val)
+net_salary = salary - tax
+tax_rate = (tax / salary * 100) if salary > 0 else 0
+
+results_display = mo.ui.text(
+    value=f"{tax_parts_val:.2f}",
+    label="Number of Tax Parts"
+)
+
+results_display
+```
+
+### Results
+
+```python {.marimo}
+#| echo: false
+
+# Create data for the chart
+chart_data = pd.DataFrame({
+    'Category': ['Net Salary', 'ITS Tax'],
+    'Amount': [net_salary, tax],
+    'Color': ['#18BC9C', '#E74C3C']  # Flatly theme colors: teal for success, red for danger
+})
+
+# Create a vertical bar chart
+chart = alt.Chart(chart_data).mark_bar().encode(
+    y=alt.Y('Category:N', title='', sort='-x'),
+    x=alt.X('Amount:Q', title='Amount (FCFA)'),
+    color=alt.Color('Color:N', scale=None),
+    tooltip=['Category:N', alt.Tooltip('Amount:Q', format=',.0f')]
+).properties(
+    width=400,
+    height=150,
+    title='Monthly Salary Breakdown'
+)
+
+# Create marimo UI element with both text and chart
+mo.md(f"""
+- **Gross Monthly Salary**: {salary:,.0f} FCFA
+- **ITS Tax**: {tax:,.0f} FCFA
+- **Net Monthly Salary**: {net_salary:,.0f} FCFA
+- **Effective Tax Rate**: {tax_rate:.2f}%
+
+{mo.ui.altair_chart(chart)}
+""")
+```
+
+### Annual Figures
+
+```python {.marimo}
+#| echo: false
+mo.md(f"""
+- **Annual Gross Salary**: {salary * 12:,.0f} FCFA
+- **Annual ITS Tax**: {tax * 12:,.0f} FCFA
+- **Annual Net Salary**: {net_salary * 12:,.0f} FCFA
+""")
+```
+
+## How the Calculation Works
+
+The ITS tax is calculated using a progressive system where different portions of your income are taxed at different rates:
+
+| Lower Range (FCFA) | Upper Range (FCFA) | Tax Rate |
+|--------------------|--------------------|---------:|
+| 0 | 75,000 | 0% |
+| 75,001 | 240,000 | 16% |
+| 240,001 | 800,000 | 21% |
+| 800,001 | 2,400,000 | 24% |
+| 2,400,001 | 8,000,000 | 28% |
+| 8,000,001+ | - | 32% |
+
+### Reduction for Family Responsibilities (RICF)
+
+The ITS system includes family tax reductions based on the number of tax parts, which considers dependents and family situation:
+
+| Tax Parts | Monthly Deduction (FCFA) |
+|-----------|--------------------------|
+| 1.00 | 0 |
+| 1.50 | 5,500 |
+| 2.00 | 11,000 |
+| 2.50 | 16,500 |
+| 3.00 | 22,000 |
+| 3.50 | 27,500 |
+| 4.00 | 33,000 |
+| 4.50 | 38,500 |
+| 5.00 | 44,000 |
+
+### Example Calculation
+
+For a monthly salary of 1,000,000 FCFA with 2 tax parts (married without children):
+
+- First 75,000 FCFA: 0% = 0 FCFA
+- Next 165,000 FCFA (75,001 to 240,000): 16% = 26,400 FCFA
+- Next 560,000 FCFA (240,001 to 800,000): 21% = 117,600 FCFA
+- Remaining 200,000 FCFA (800,001 to 1,000,000): 24% = 48,000 FCFA
+- **Gross Tax**: 192,000 FCFA
+- **ITS Tax Deduction** (2.0 parts): 11,000 FCFA
+- **Final ITS Tax**: 181,000 FCFA
+
+## References
+
+This mini project inspired from [collaborative simulator by Deloitte and Julaya](https://simulateur.julaya.co/).
+
+---
+*This calculator provides estimates based on the 2024 ITS reform. For official tax advice, consult with a qualified tax professional or [Direction Générale des Impôts](https://dgi.gouv.ci)*
