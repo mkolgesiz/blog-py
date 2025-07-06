@@ -9,10 +9,11 @@ website:
         text: Home
       - href: "https://mkolgesiz.github.io/about.html"
         text: "About Me"
-      - href: blog.qmd
-        text: Blog-py
       - href: "https://mkolgesiz.github.io/blog-r.html"
         text: Blog-r
+      - href: blog.qmd
+        text: Blog-py
+
     right:
       - icon: github
         href: https://github.com/mkolgesiz

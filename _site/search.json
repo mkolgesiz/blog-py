@@ -49,13 +49,6 @@
     "text": "More things\nAnd we can respond!\n\n    \n    NaN😄 Batman!\n    \n    %23%20No%20echo%20here%20means%20we%20do%20not%20show%20the%20code%0Amo.md(%22NaN%F0%9F%98%84%22%20*%20slider.value%20%2B%20%22%20Batman!%22)"
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "",
-    "section": "",
-    "text": "Interactive Tax Calculator\n\n\n\nMarimo\n\nFinance\n\n\n\nITS Tax Calculation with Marimo\n\n\n\n\n\nJun 29, 2025\n\n\nM. Melik Kolgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto’s Marimo Plugin\n\n\n\nMarimo\n\nQuarto\n\n\n\nMarimo Notebook Integration with Quarto\n\n\n\n\n\nJun 27, 2025\n\n\nM. Melik Kolgesiz\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "posts/its-calculator.html",
     "href": "posts/its-calculator.html",
     "title": "Interactive Tax Calculator",
@@ -82,5 +75,12 @@
     "title": "Interactive Tax Calculator",
     "section": "References",
     "text": "References\nThis mini project inspired from collaborative simulator by Deloitte and Julaya.\n\nThis calculator provides estimates based on the 2024 ITS reform. For official tax advice, consult with a qualified tax professional or Direction Générale des Impôts"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "",
+    "section": "",
+    "text": "Interactive Tax Calculator\n\n\n\nMarimo\n\nFinance\n\n\n\nITS Tax Calculation with Marimo\n\n\n\n\n\nJun 29, 2025\n\n\nM. Melik Kolgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto’s Marimo Plugin\n\n\n\nMarimo\n\nQuarto\n\n\n\nMarimo Notebook Integration with Quarto\n\n\n\n\n\nJun 27, 2025\n\n\nM. Melik Kolgesiz\n\n\n\n\n\nNo matching items"
   }
 ]
