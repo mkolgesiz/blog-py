@@ -6,10 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Harlow Malloc">
-<meta name="dcterms.date" content="2025-06-26">
+<meta name="author" content="M. Melik Kolgesiz">
+<meta name="dcterms.date" content="2025-06-29">
+<meta name="description" content="ITS Tax Calculation with Marimo">
 
-<title>Post With Code</title>
+<title>Interactive Tax Calculator</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,12 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a8067cc1823b39fe189e714953bd6389.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-5e6e8924b86caa3c40f5397e054dc4e4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-a8067cc1823b39fe189e714953bd6389.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -78,167 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Lora&amp;family=PT+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
-</head><body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = true;
-    const darkModeDefault = authorPrefersDark;
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script><marimo-filename hidden=""></marimo-filename>
+</head><body class="nav-fixed quarto-light"><marimo-filename hidden=""></marimo-filename>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -257,11 +96,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="https://mkolgesiz.github.io"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="https://mkolgesiz.github.io/about.html"> 
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
@@ -269,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Blog-py</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://mkolgesiz.github.io/blog-r/blog.html"> 
+    <a class="nav-link" href="https://mkolgesiz.github.io/blog-r.html"> 
 <span class="menu-text">Blog-r</span></a>
   </li>  
 </ul>
@@ -290,7 +129,6 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -304,27 +142,37 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#just-another-quarto-project" id="toc-just-another-quarto-project" class="nav-link active" data-scroll-target="#just-another-quarto-project">Just another Quarto project</a>
+  <li><a href="#calculator" id="toc-calculator" class="nav-link active" data-scroll-target="#calculator">Calculator</a>
   <ul class="collapse">
-  <li><a href="#more-things" id="toc-more-things" class="nav-link" data-scroll-target="#more-things">More things</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#annual-figures" id="toc-annual-figures" class="nav-link" data-scroll-target="#annual-figures">Annual Figures</a></li>
   </ul></li>
+  <li><a href="#how-the-calculation-works" id="toc-how-the-calculation-works" class="nav-link" data-scroll-target="#how-the-calculation-works">How the Calculation Works</a>
+  <ul class="collapse">
+  <li><a href="#reduction-for-family-responsibilities-ricf" id="toc-reduction-for-family-responsibilities-ricf" class="nav-link" data-scroll-target="#reduction-for-family-responsibilities-ricf">Reduction for Family Responsibilities (RICF)</a></li>
+  <li><a href="#example-calculation" id="toc-example-calculation" class="nav-link" data-scroll-target="#example-calculation">Example Calculation</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Post With Code</h1>
+<h1 class="title">Interactive Tax Calculator</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">news</div>
-    <div class="quarto-category">code</div>
-    <div class="quarto-category">analysis</div>
+    <div class="quarto-category">Marimo</div>
+    <div class="quarto-category">Finance</div>
   </div>
   </div>
 
+<div>
+  <div class="description">
+    ITS Tax Calculation with Marimo
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -332,14 +180,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Harlow Malloc </p>
+             <p>M. Melik Kolgesiz </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 26, 2025</p>
+      <p class="date">June 29, 2025</p>
     </div>
   </div>
   
@@ -351,45 +199,166 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a post with executable code.</p>
-<section id="just-another-quarto-project" class="level1">
-<h1>Just another Quarto project</h1>
+<p>The <strong>Impot sur Traitements et Salaires (ITS)</strong> is the salary tax system in Ivory Coast that underwent significant reform in January 2024. This interactive calculator computes monthly ITS tax based on the new progressive tax brackets. Interactive elements were prepared with <a href="https://github.com/marimo-team/quarto-marimo">marimo plugin</a>. Bear in mind that widgets will take a little time to load.</p>
+<section id="calculator" class="level2">
+<h2 class="anchored" data-anchor-id="calculator">Calculator</h2>
 <marimo-island data-app-id="main" data-cell-id="Hbol" data-reactive="true">
     <marimo-cell-output>
-    <marimo-ui-element object-id="Hbol-0" random-id="d40a956f-82f8-32e5-f917-9c73f77a968c"><marimo-slider data-initial-value="1" data-label="&quot;<span class=\&quot;markdown prose dark:prose-invert\&quot;><span class=\&quot;paragraph\&quot;>Look, a slider!</span></span>&quot;" data-start="1" data-stop="10" data-step="1" data-steps="[]" data-debounce="false" data-disabled="false" data-orientation="&quot;horizontal&quot;" data-show-value="false" data-include-input="false" data-full-width="false"></marimo-slider></marimo-ui-element>
+    <marimo-mime-renderer data-mime="&quot;application/vnd.marimo+error&quot;" data-data="[{&quot;msg&quot;: &quot;No module named 'altair'&quot;, &quot;exception_type&quot;: &quot;ModuleNotFoundError&quot;, &quot;raising_cell&quot;: null, &quot;type&quot;: &quot;exception&quot;}]"></marimo-mime-renderer>
     </marimo-cell-output>
-    <marimo-ui-element object-id="d40a956f-82f8-32e5-f917-9c73f77a968c" random-id="d40a956f-82f8-32e5-f917-9c73f77a968c"><marimo-code-editor data-initial-value="&quot;import marimo as mo\nslider = mo.ui.slider(1, 10, 1, label=\&quot;Look, a slider!\&quot;)\nslider&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false" data-show-copy-button="true" data-debounce="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-cell-code hidden="">import%20marimo%20as%20mo%0Aimport%20altair%20as%20alt%0Aimport%20pandas%20as%20pd</marimo-cell-code>
 </marimo-island>
-<section id="more-things" class="level2">
-<h2 class="anchored" data-anchor-id="more-things">More things</h2>
-<p>And we can respond!</p>
 <marimo-island data-app-id="main" data-cell-id="MJUe" data-reactive="true">
     <marimo-cell-output>
-    <span class="markdown prose dark:prose-invert"><span class="paragraph">NaN Batman!</span></span>
+    <marimo-mime-renderer data-mime="&quot;application/vnd.marimo+error&quot;" data-data="[{&quot;msg&quot;: &quot;An ancestor raised an exception (ModuleNotFoundError): &quot;, &quot;exception_type&quot;: &quot;ModuleNotFoundError&quot;, &quot;raising_cell&quot;: &quot;Hbol&quot;, &quot;type&quot;: &quot;exception&quot;}]"></marimo-mime-renderer>
     </marimo-cell-output>
-    <marimo-cell-code hidden="">%23%20No%20echo%20here%20means%20we%20do%20not%20show%20the%20code%0Amo.md(%22NaN%22%20*%20slider.value%20%2B%20%22%20Batman!%22)</marimo-cell-code>
+    <marimo-cell-code hidden="">%23%20Create%20interactive%20elements%0Asalary_input%20%3D%20mo.ui.number(%0A%20%20%20%20start%3D0%2C%0A%20%20%20%20stop%3D100000000%2C%0A%20%20%20%20step%3D1000%2C%0A%20%20%20%20value%3D1000000%2C%0A%20%20%20%20label%3D%22Gross%20Monthly%20Salary%20(FCFA)%22%0A)%0A%0A%23%20Create%20dropdown%20for%20marital%20status%0Amarital_status%20%3D%20mo.ui.dropdown(%0A%20%20%20%20options%3D%5B%22Single%22%2C%20%22Married%22%2C%20%22Divorced%22%2C%20%22Widowed%22%5D%2C%0A%20%20%20%20value%3D%22Single%22%2C%0A%20%20%20%20label%3D%22Marital%20Status%22%0A)%0A%0A%23%20Create%20dropdown%20for%20number%20of%20dependent%20children%0Adependent_children%20%3D%20mo.ui.dropdown(%0A%20%20%20%20options%3D%5Bstr(i)%20for%20i%20in%20range(0%2C%2011)%5D%2C%0A%20%20%20%20value%3D%220%22%2C%0A%20%20%20%20label%3D%22Number%20of%20Dependent%20Children%22%0A)%0A%0A%23%20Create%20dropdown%20for%20disabled%20dependants%0Adisabled_dependants%20%3D%20mo.ui.dropdown(%0A%20%20%20%20options%3D%5Bstr(i)%20for%20i%20in%20range(0%2C%206)%5D%2C%0A%20%20%20%20value%3D%220%22%2C%0A%20%20%20%20label%3D%22Number%20of%20Disabled%20Dependants%22%0A)%0A%0Amo.md(f%22%22%22%0A%0A%7Bsalary_input%7D%0A%0A%7Bmarital_status%7D%0A%0A%7Bdependent_children%7D%0A%0A%7Bdisabled_dependants%7D%0A%22%22%22)</marimo-cell-code>
 </marimo-island>
-
-
+<marimo-island data-app-id="main" data-cell-id="vblA" data-reactive="true">
+    <marimo-cell-output>
+    <marimo-mime-renderer data-mime="&quot;application/vnd.marimo+error&quot;" data-data="[{&quot;msg&quot;: &quot;An ancestor raised an exception (ModuleNotFoundError): &quot;, &quot;exception_type&quot;: &quot;ModuleNotFoundError&quot;, &quot;raising_cell&quot;: &quot;Hbol&quot;, &quot;type&quot;: &quot;exception&quot;}]"></marimo-mime-renderer>
+    </marimo-cell-output>
+    <marimo-cell-code hidden="">def%20calculate_tax_parts(marital_status%2C%20dependent_children%2C%20disabled_dependents)%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Calculate%20number%20of%20tax%20parts%20based%20on%20marital%20status%20and%20dependents%0A%20%20%20%20%22%22%22%0A%20%20%20%20%23%20Base%20parts%0A%20%20%20%20if%20marital_status%20in%20%5B%22Single%22%2C%20%22Divorced%22%2C%20%22Widowed%22%5D%3A%0A%20%20%20%20%20%20%20%20base_parts%20%3D%201.0%0A%20%20%20%20elif%20marital_status%20%3D%3D%20%22Married%22%3A%0A%20%20%20%20%20%20%20%20base_parts%20%3D%202.0%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20base_parts%20%3D%201.0%0A%0A%20%20%20%20%23%20Add%20parts%20for%20children%0A%20%20%20%20if%20dependent_children%20%3E%200%3A%0A%20%20%20%20%20%20%20%20if%20marital_status%20in%20%5B%22Single%22%2C%20%22Divorced%22%2C%20%22Widowed%22%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Single%20parent%3A%20first%20child%20adds%201%20part%2C%20others%20add%200.5%20each%0A%20%20%20%20%20%20%20%20%20%20%20%20child_parts%20%3D%201.0%20%2B%20(dependent_children%20-%201)%20*%200.5%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Married%3A%20first%20child%20adds%200.5%2C%20others%20add%200.5%20each%0A%20%20%20%20%20%20%20%20%20%20%20%20child_parts%20%3D%20dependent_children%20*%200.5%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20child_parts%20%3D%200.0%0A%0A%20%20%20%20%23%20Add%20parts%20for%20disabled%20dependents%20(0.5%20part%20each)%0A%20%20%20%20disabled_parts%20%3D%20disabled_dependents%20*%200.5%0A%0A%20%20%20%20%23%20Total%20parts%20(max%205.0)%0A%20%20%20%20total_parts%20%3D%20min(base_parts%20%2B%20child_parts%20%2B%20disabled_parts%2C%205.0)%0A%0A%20%20%20%20return%20total_parts%0A%0Adef%20calculate_its_tax(monthly_salary%2C%20dependents%3D0%2C%20tax_parts%3D1.0)%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Calculate%20ITS%20tax%20based%20on%202024%20Ivory%20Coast%20tax%20brackets%0A%20%20%20%20%22%22%22%0A%20%20%20%20%23%20Updated%20tax%20brackets%20based%20on%20new%20data%0A%20%20%20%20brackets%20%3D%20%5B%0A%20%20%20%20%20%20%20%20(75000%2C%200.0)%2C%20%20%20%20%20%23%20Zero-rate%20bracket%0A%20%20%20%20%20%20%20%20(240000%2C%200.16)%2C%20%20%20%23%2016%25%20bracket%0A%20%20%20%20%20%20%20%20(800000%2C%200.21)%2C%20%20%20%23%2021%25%20bracket%0A%20%20%20%20%20%20%20%20(2400000%2C%200.24)%2C%20%20%23%2024%25%20bracket%0A%20%20%20%20%20%20%20%20(8000000%2C%200.28)%2C%20%20%23%2028%25%20bracket%0A%20%20%20%20%20%20%20%20(float('inf')%2C%200.32)%20%20%23%2032%25%20bracket%0A%20%20%20%20%5D%0A%0A%20%20%20%20tax%20%3D%200%0A%20%20%20%20remaining_income%20%3D%20monthly_salary%0A%20%20%20%20previous_bracket%20%3D%200%0A%0A%20%20%20%20for%20bracket_limit%2C%20rate%20in%20brackets%3A%0A%20%20%20%20%20%20%20%20if%20remaining_income%20%3C%3D%200%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%0A%20%20%20%20%20%20%20%20taxable_in_bracket%20%3D%20min(remaining_income%2C%20bracket_limit%20-%20previous_bracket)%0A%20%20%20%20%20%20%20%20tax%20%2B%3D%20taxable_in_bracket%20*%20rate%0A%20%20%20%20%20%20%20%20remaining_income%20-%3D%20taxable_in_bracket%0A%20%20%20%20%20%20%20%20previous_bracket%20%3D%20bracket_limit%0A%0A%20%20%20%20%20%20%20%20if%20bracket_limit%20%3D%3D%20float('inf')%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%0A%20%20%20%20%23%20Apply%20tax%20parts%20deduction%20based%20on%20the%20table%0A%20%20%20%20tax_parts_deductions%20%3D%20%7B%0A%20%20%20%20%20%20%20%201.0%3A%200%2C%201.5%3A%205500%2C%202.0%3A%2011000%2C%202.5%3A%2016500%2C%203.0%3A%2022000%2C%0A%20%20%20%20%20%20%20%203.5%3A%2027500%2C%204.0%3A%2033000%2C%204.5%3A%2038500%2C%205.0%3A%2044000%0A%20%20%20%20%7D%0A%0A%20%20%20%20deduction%20%3D%20tax_parts_deductions.get(tax_parts%2C%200)%0A%20%20%20%20tax%20%3D%20max(0%2C%20tax%20-%20deduction)%0A%0A%20%20%20%20return%20tax%0A%0A%23%20Calculate%20and%20display%20results%0Asalary%20%3D%20salary_input.value%0Amarital_status_val%20%3D%20marital_status.value%0Adependent_children_val%20%3D%20int(dependent_children.value)%0Adisabled_dependants_val%20%3D%20int(disabled_dependants.value)%0A%0A%23%20Calculate%20tax%20parts%20automatically%0Atax_parts_val%20%3D%20calculate_tax_parts(marital_status_val%2C%20dependent_children_val%2C%20disabled_dependants_val)%0A%0A%23%20Calculate%20tax%20using%20the%20calculated%20inputs%0Atax%20%3D%20calculate_its_tax(salary%2C%20dependent_children_val%2C%20tax_parts_val)%0Anet_salary%20%3D%20salary%20-%20tax%0Atax_rate%20%3D%20(tax%20%2F%20salary%20*%20100)%20if%20salary%20%3E%200%20else%200%0A%0Aresults_display%20%3D%20mo.ui.text(%0A%20%20%20%20value%3Df%22%7Btax_parts_val%3A.2f%7D%22%2C%0A%20%20%20%20label%3D%22Number%20of%20Tax%20Parts%22%0A)%0A%0Aresults_display</marimo-cell-code>
+</marimo-island>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+<marimo-island data-app-id="main" data-cell-id="bkHC" data-reactive="true">
+    <marimo-cell-output>
+    <marimo-mime-renderer data-mime="&quot;application/vnd.marimo+error&quot;" data-data="[{&quot;msg&quot;: &quot;An ancestor raised an exception (ModuleNotFoundError): &quot;, &quot;exception_type&quot;: &quot;ModuleNotFoundError&quot;, &quot;raising_cell&quot;: &quot;Hbol&quot;, &quot;type&quot;: &quot;exception&quot;}]"></marimo-mime-renderer>
+    </marimo-cell-output>
+    <marimo-cell-code hidden="">%23%20Create%20data%20for%20the%20chart%0Achart_data%20%3D%20pd.DataFrame(%7B%0A%20%20%20%20'Category'%3A%20%5B'Net%20Salary'%2C%20'ITS%20Tax'%5D%2C%0A%20%20%20%20'Amount'%3A%20%5Bnet_salary%2C%20tax%5D%2C%0A%20%20%20%20'Color'%3A%20%5B'%2318BC9C'%2C%20'%23E74C3C'%5D%20%20%23%20Flatly%20theme%20colors%3A%20teal%20for%20success%2C%20red%20for%20danger%0A%7D)%0A%0A%23%20Create%20a%20vertical%20bar%20chart%0Achart%20%3D%20alt.Chart(chart_data).mark_bar().encode(%0A%20%20%20%20y%3Dalt.Y('Category%3AN'%2C%20title%3D''%2C%20sort%3D'-x')%2C%0A%20%20%20%20x%3Dalt.X('Amount%3AQ'%2C%20title%3D'Amount%20(FCFA)')%2C%0A%20%20%20%20color%3Dalt.Color('Color%3AN'%2C%20scale%3DNone)%2C%0A%20%20%20%20tooltip%3D%5B'Category%3AN'%2C%20alt.Tooltip('Amount%3AQ'%2C%20format%3D'%2C.0f')%5D%0A).properties(%0A%20%20%20%20width%3D400%2C%0A%20%20%20%20height%3D150%2C%0A%20%20%20%20title%3D'Monthly%20Salary%20Breakdown'%0A)%0A%0A%23%20Create%20marimo%20UI%20element%20with%20both%20text%20and%20chart%0Amo.md(f%22%22%22%0A-%20**Gross%20Monthly%20Salary**%3A%20%7Bsalary%3A%2C.0f%7D%20FCFA%0A-%20**ITS%20Tax**%3A%20%7Btax%3A%2C.0f%7D%20FCFA%0A-%20**Net%20Monthly%20Salary**%3A%20%7Bnet_salary%3A%2C.0f%7D%20FCFA%0A-%20**Effective%20Tax%20Rate**%3A%20%7Btax_rate%3A.2f%7D%25%0A%0A%7Bmo.ui.altair_chart(chart)%7D%0A%22%22%22)</marimo-cell-code>
+</marimo-island>
 </section>
+<section id="annual-figures" class="level3">
+<h3 class="anchored" data-anchor-id="annual-figures">Annual Figures</h3>
+<marimo-island data-app-id="main" data-cell-id="lEQa" data-reactive="true">
+    <marimo-cell-output>
+    <marimo-mime-renderer data-mime="&quot;application/vnd.marimo+error&quot;" data-data="[{&quot;msg&quot;: &quot;An ancestor raised an exception (ModuleNotFoundError): &quot;, &quot;exception_type&quot;: &quot;ModuleNotFoundError&quot;, &quot;raising_cell&quot;: &quot;Hbol&quot;, &quot;type&quot;: &quot;exception&quot;}]"></marimo-mime-renderer>
+    </marimo-cell-output>
+    <marimo-cell-code hidden="">mo.md(f%22%22%22%0A-%20**Annual%20Gross%20Salary**%3A%20%7Bsalary%20*%2012%3A%2C.0f%7D%20FCFA%0A-%20**Annual%20ITS%20Tax**%3A%20%7Btax%20*%2012%3A%2C.0f%7D%20FCFA%0A-%20**Annual%20Net%20Salary**%3A%20%7Bnet_salary%20*%2012%3A%2C.0f%7D%20FCFA%0A%22%22%22)</marimo-cell-code>
+</marimo-island>
+</section>
+</section>
+<section id="how-the-calculation-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-calculation-works">How the Calculation Works</h2>
+<p>The ITS tax is calculated using a progressive system where different portions of your income are taxed at different rates:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Lower Range (FCFA)</th>
+<th>Upper Range (FCFA)</th>
+<th style="text-align: right;">Tax Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>75,000</td>
+<td style="text-align: right;">0%</td>
+</tr>
+<tr class="even">
+<td>75,001</td>
+<td>240,000</td>
+<td style="text-align: right;">16%</td>
+</tr>
+<tr class="odd">
+<td>240,001</td>
+<td>800,000</td>
+<td style="text-align: right;">21%</td>
+</tr>
+<tr class="even">
+<td>800,001</td>
+<td>2,400,000</td>
+<td style="text-align: right;">24%</td>
+</tr>
+<tr class="odd">
+<td>2,400,001</td>
+<td>8,000,000</td>
+<td style="text-align: right;">28%</td>
+</tr>
+<tr class="even">
+<td>8,000,001+</td>
+<td>-</td>
+<td style="text-align: right;">32%</td>
+</tr>
+</tbody>
+</table>
+<section id="reduction-for-family-responsibilities-ricf" class="level3">
+<h3 class="anchored" data-anchor-id="reduction-for-family-responsibilities-ricf">Reduction for Family Responsibilities (RICF)</h3>
+<p>The ITS system includes family tax reductions based on the number of tax parts, which considers dependents and family situation:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tax Parts</th>
+<th>Monthly Deduction (FCFA)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.00</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1.50</td>
+<td>5,500</td>
+</tr>
+<tr class="odd">
+<td>2.00</td>
+<td>11,000</td>
+</tr>
+<tr class="even">
+<td>2.50</td>
+<td>16,500</td>
+</tr>
+<tr class="odd">
+<td>3.00</td>
+<td>22,000</td>
+</tr>
+<tr class="even">
+<td>3.50</td>
+<td>27,500</td>
+</tr>
+<tr class="odd">
+<td>4.00</td>
+<td>33,000</td>
+</tr>
+<tr class="even">
+<td>4.50</td>
+<td>38,500</td>
+</tr>
+<tr class="odd">
+<td>5.00</td>
+<td>44,000</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="example-calculation">Example Calculation</h3>
+<p>For a monthly salary of 1,000,000 FCFA with 2 tax parts (married without children):</p>
+<ul>
+<li>First 75,000 FCFA: 0% = 0 FCFA</li>
+<li>Next 165,000 FCFA (75,001 to 240,000): 16% = 26,400 FCFA</li>
+<li>Next 560,000 FCFA (240,001 to 800,000): 21% = 117,600 FCFA</li>
+<li>Remaining 200,000 FCFA (800,001 to 1,000,000): 24% = 48,000 FCFA</li>
+<li><strong>Gross Tax</strong>: 192,000 FCFA</li>
+<li><strong>ITS Tax Deduction</strong> (2.0 parts): 11,000 FCFA</li>
+<li><strong>Final ITS Tax</strong>: 181,000 FCFA</li>
+</ul>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>This mini project inspired from <a href="https://simulateur.julaya.co/">collaborative simulator by Deloitte and Julaya</a>.</p>
+<hr>
+<p><em>This calculator provides estimates based on the 2024 ITS reform. For official tax advice, consult with a qualified tax professional or <a href="https://dgi.gouv.ci">Direction Générale des Impôts</a></em></p>
+
+
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

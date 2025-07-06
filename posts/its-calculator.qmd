@@ -1,8 +1,9 @@
 ---
 title: "Interactive Tax Calculator"
+description: "ITS Tax Calculation with Marimo"
 author: "M. Melik Kolgesiz"
-date: "2024-12-29"
-categories: [marimo, finance]
+date: "2025-06-29"
+categories: [Marimo, Finance]
 filters:
     - marimo-team/marimo
 format:
@@ -11,7 +12,7 @@ format:
     encoding: UTF-8
 ---
 
-The **Impot sur Traitements et Salaires (ITS)** is the salary tax system in Ivory Coast that underwent significant reform in January 2024. This interactive calculator computes monthly ITS tax based on the new progressive tax brackets. Interactive elements were prepared with [marimo plugin](https://github.com/marimo-team/quarto-marimo).
+The **Impot sur Traitements et Salaires (ITS)** is the salary tax system in Ivory Coast that underwent significant reform in January 2024. This interactive calculator computes monthly ITS tax based on the new progressive tax brackets. Interactive elements were prepared with [marimo plugin](https://github.com/marimo-team/quarto-marimo). Bear in mind that widgets will take a little time to load.
 
 ## Calculator
 

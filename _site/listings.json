@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/its-calculator.html",
       "/posts/quarto-marimo.html"
     ]
   }

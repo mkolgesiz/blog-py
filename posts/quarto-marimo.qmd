@@ -1,8 +1,9 @@
 ---
 title: "Quarto's Marimo Plugin"
+description: "Marimo Notebook Integration with Quarto"
 author: "M. Melik Kolgesiz"
 date: "2025-06-27"
-categories: [marimo, quarto]
+categories: [Marimo, Quarto]
 image: images/marimo.webp
 filters:
     - marimo-team/marimo
