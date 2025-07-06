@@ -53,7 +53,7 @@
     "href": "posts/its-calculator.html",
     "title": "Interactive Tax Calculator",
     "section": "",
-    "text": "The Impot sur Traitements et Salaires (ITS) is the salary tax system in Ivory Coast that underwent significant reform in January 2024. This interactive calculator computes monthly ITS tax based on the new progressive tax brackets. Interactive elements were prepared with marimo plugin."
+    "text": "The Impot sur Traitements et Salaires (ITS) is the salary tax system in Ivory Coast that underwent significant reform in January 2024. This interactive calculator computes monthly ITS tax based on the new progressive tax brackets. Interactive elements were prepared with marimo plugin. Bear in mind that widgets will take a little time to load."
   },
   {
     "objectID": "posts/its-calculator.html#calculator",
@@ -81,6 +81,6 @@
     "href": "blog.html",
     "title": "",
     "section": "",
-    "text": "Quarto’s Marimo Plugin\n\n\n\nmarimo\n\nquarto\n\n\n\n\n\n\n\n\n\nJun 27, 2025\n\n\nM. Melik Kolgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Tax Calculator\n\n\n\nmarimo\n\nfinance\n\n\n\n\n\n\n\n\n\nDec 29, 2024\n\n\nM. Melik Kolgesiz\n\n\n\n\n\nNo matching items"
+    "text": "Interactive Tax Calculator\n\n\n\nMarimo\n\nFinance\n\n\n\nITS Tax Calculation with Marimo\n\n\n\n\n\nJun 29, 2025\n\n\nM. Melik Kolgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto’s Marimo Plugin\n\n\n\nMarimo\n\nQuarto\n\n\n\nMarimo Notebook Integration with Quarto\n\n\n\n\n\nJun 27, 2025\n\n\nM. Melik Kolgesiz\n\n\n\n\n\nNo matching items"
   }
 ]
