@@ -7,12 +7,14 @@ website:
     left:
       - href: "https://mkolgesiz.github.io"
         text: Home
-      - href: "https://mkolgesiz.github.io/about.html"
+      - href: "https://github.com/mkolgesiz/cv/blob/main/CV.pdf"
         text: "About Me"
       - href: "https://mkolgesiz.github.io/blog-r.html"
         text: Blog-r
       - href: blog.qmd
         text: Blog-py
+      - href: "https://mkolgesiz.github.io/recipes.html"
+        text: Recipes
 
     right:
       - icon: github
