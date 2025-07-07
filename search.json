@@ -9,23 +9,16 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "M. Melik Kolgesiz",
+    "title": "Welcome",
     "section": "",
-    "text": "I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist in Turkey and a regional accounting manager in several different countries in West Africa.\nOn this site, I present my projects, CV, blog and recipe collection."
+    "text": "Hi! I’m Melik, a financial controller living in the Ivory Coast. I’ve worked across West Africa and Turkey, mostly dealing with accounting and finance.\nI like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I’ve collected along the way."
   },
   {
-    "objectID": "index.html#bio",
-    "href": "index.html#bio",
-    "title": "M. Melik Kolgesiz",
-    "section": "",
-    "text": "I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist in Turkey and a regional accounting manager in several different countries in West Africa.\nOn this site, I present my projects, CV, blog and recipe collection."
-  },
-  {
-    "objectID": "index.html#interests",
-    "href": "index.html#interests",
-    "title": "M. Melik Kolgesiz",
-    "section": "Interests",
-    "text": "Interests\nI’m interested in automation, data science and data engineering."
+    "objectID": "index.html#whats-here",
+    "href": "index.html#whats-here",
+    "title": "Welcome",
+    "section": "What’s here",
+    "text": "What’s here\n\nBlog posts - mostly about data and work stuff\nRecipes - things I’ve tried and might get lost over time\nProjects - simple things I’ve built from what I learned along the way"
   },
   {
     "objectID": "posts/quarto-marimo.html",
