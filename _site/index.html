@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>M. Melik Kolgesiz</title>
+<title>Welcome</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://mkolgesiz.github.io/about.html"> 
+    <a class="nav-link" href="https://github.com/mkolgesiz/cv/blob/main/CV.pdf"> 
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
@@ -100,6 +100,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./blog.html"> 
 <span class="menu-text">Blog-py</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://mkolgesiz.github.io/recipes.html"> 
+<span class="menu-text">Recipes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -132,8 +136,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bio" id="toc-bio" class="nav-link active" data-scroll-target="#bio">Bio</a></li>
-  <li><a href="#interests" id="toc-interests" class="nav-link" data-scroll-target="#interests">Interests</a></li>
+  <li><a href="#whats-here" id="toc-whats-here" class="nav-link active" data-scroll-target="#whats-here">What’s here</a></li>
   </ul>
 </nav>
     </div>
@@ -142,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">M. Melik Kolgesiz</h1>
+<h1 class="title">Welcome</h1>
 </div>
 
 
@@ -159,14 +162,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bio" class="level2">
-<h2 class="anchored" data-anchor-id="bio">Bio</h2>
-<p>I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist in Turkey and a regional accounting manager in several different countries in West Africa.</p>
-<p>On this site, I present my projects, CV, blog and recipe collection.</p>
-</section>
-<section id="interests" class="level2">
-<h2 class="anchored" data-anchor-id="interests">Interests</h2>
-<p>I’m interested in automation, data science and data engineering.</p>
+<p>Hi! I’m Melik, a financial controller living in the Ivory Coast. I’ve worked across West Africa and Turkey, mostly dealing with accounting and finance.</p>
+<p>I like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I’ve collected along the way.</p>
+<section id="whats-here" class="level2">
+<h2 class="anchored" data-anchor-id="whats-here">What’s here</h2>
+<ul>
+<li><strong>Blog posts</strong> - mostly about data and work stuff</li>
+<li><strong>Recipes</strong> - things I’ve tried and might get lost over time</li>
+<li><strong>Projects</strong> - simple things I’ve built from what I learned along the way</li>
+</ul>
 
 
 </section>
@@ -244,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/mkolgesiz\.github\.io\/blog-py\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

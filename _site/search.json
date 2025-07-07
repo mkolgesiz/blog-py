@@ -9,9 +9,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "M. Melik Kolgesiz",
+    "title": "Welcome",
     "section": "",
-    "text": "I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist in Turkey and a regional accounting manager in several different countries in West Africa.\nOn this site, I present my projects, CV, blog and recipe collection."
+    "text": "Hi! I’m Melik, a financial controller living in the Ivory Coast. I’ve worked across West Africa and Turkey, mostly dealing with accounting and finance.\nI like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I’ve collected along the way."
   },
   {
     "objectID": "index.html#bio",
@@ -82,5 +82,12 @@
     "title": "",
     "section": "",
     "text": "Interactive Tax Calculator\n\n\n\nMarimo\n\nFinance\n\n\n\nITS Tax Calculation with Marimo\n\n\n\n\n\nJun 29, 2025\n\n\nM. Melik Kolgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto’s Marimo Plugin\n\n\n\nMarimo\n\nQuarto\n\n\n\nMarimo Notebook Integration with Quarto\n\n\n\n\n\nJun 27, 2025\n\n\nM. Melik Kolgesiz\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#whats-here",
+    "href": "index.html#whats-here",
+    "title": "Welcome",
+    "section": "What’s here",
+    "text": "What’s here\n\nBlog posts - mostly about data and work stuff\nRecipes - things I’ve tried and might get lost over time\nProjects - simple things I’ve built from what I learned along the way"
   }
 ]
